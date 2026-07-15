@@ -1,0 +1,2 @@
+ch=document.getElementById("p").value
+documen.getElementById("h").value=ch

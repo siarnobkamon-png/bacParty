@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="BAC PARTY 2026 - The Biggest Graduation Festival of the Year. July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Confetti, fireworks, and non-stop festival vibes.">
+<meta name="keywords" content="BAC Party 2026, Graduation Party, Yassin Bacha, Festival, Baccalaureat Party Tunisia, Pepas, Festival Vibes">
+<meta name="author" content="Yassin Bacha">
+<meta name="theme-color" content="#060a24">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BAC PARTY 2026 | The Biggest Graduation Festival">
+<meta property="og:description" content="July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Confetti, graduation caps, fireworks, and the best festival vibes of the year.">
+<meta property="og:site_name" content="BAC PARTY 2026">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BAC PARTY 2026 | The Biggest Graduation Festival">
+<meta name="twitter:description" content="July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Confetti, graduation caps, fireworks, and the best festival vibes of the year.">
+
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<title>BAC PARTY 2026 | The Biggest Graduation Festival</title>
+
+<!-- Preload fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Orbitron:wght@400;500;700;900&family=Raleway:wght@200;300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================== LOADING SCREEN ======================== -->
+<div id="loading-screen">
+  <div id="particles-loader"></div>
+  <div class="loader-content">
+    <div class="loader-logo-container">
+      <div class="loader-logo">
+        <span class="logo-bac">BAC</span>
+        <span class="logo-party">PARTY</span>
+        <span class="logo-live">2026</span>
+      </div>
+      <div class="logo-glow-ring"></div>
+      <div class="logo-glow-ring-2"></div>
+    </div>
+    <div class="equalizer-loader">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+    <div class="loader-percent-container">
+      <div class="loader-percent-bar-bg">
+        <div class="loader-percent-bar" id="loaderPercentBar"></div>
+      </div>
+      <div class="loader-percent" id="loaderPercent">0%</div>
+    </div>
+    <div class="loader-text">GET READY TO CELEBRATE...</div>
+  </div>
+</div>
+
+<!-- ======================== BACKGROUND MUSIC CONTROLLER ======================== -->
+<div id="music-controller" class="music-controller">
+  <div class="music-toggle-row">
+    <button id="musicPrev" class="music-nav-btn" aria-label="Previous Track">
+      <i class="fas fa-step-backward"></i>
+    </button>
+    <button id="musicToggle" class="music-toggle" aria-label="Toggle Music">
+      <i class="fas fa-music" id="musicIcon"></i>
+    </button>
+    <button id="musicNext" class="music-nav-btn" aria-label="Next Track">
+      <i class="fas fa-step-forward"></i>
+    </button>
+  </div>
+  <div class="music-visualizer">
+    <div class="mv-bar"></div>
+    <div class="mv-bar"></div>
+    <div class="mv-bar"></div>
+    <div class="mv-bar"></div>
+    <div class="mv-bar"></div>
+    <div class="mv-bar"></div>
+    <div class="mv-bar"></div>
+  </div>
+  <div class="track-name" id="trackName">PEPAS</div>
+  <div class="volume-container">
+    <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
+  </div>
+</div>
+
+<!-- Playlist: drop your files into assets/music/ using these exact names, or edit the list in script.js -->
+<audio id="bgMusic" preload="auto"></audio>
+
+<!-- ======================== THREE.JS CANVAS ======================== -->
+<canvas id="three-canvas"></canvas>
+
+<!-- ======================== CONFETTI + GRADUATION CAPS LAYER ======================== -->
+<canvas id="confetti-canvas"></canvas>
+
+<!-- ======================== HERO SECTION ======================== -->
+<section id="hero" class="hero-section">
+  <div class="hero-background">
+    <div class="smoke-layer smoke-1"></div>
+    <div class="smoke-layer smoke-2"></div>
+    <div class="smoke-layer smoke-3"></div>
+    <div class="light-beams">
+      <div class="beam beam-1"></div>
+      <div class="beam beam-2"></div>
+      <div class="beam beam-3"></div>
+      <div class="beam beam-4"></div>
+      <div class="beam beam-5"></div>
+    </div>
+    <div class="lens-flare flare-1"></div>
+    <div class="lens-flare flare-2"></div>
+    <div class="neon-grid"></div>
+    <div id="particles-hero"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-date-badge" data-aos="fade-down" data-aos-delay="300">
+      <span class="badge-line"></span>
+      <span class="badge-text">JULY 17, 2026 • 8:30 PM</span>
+      <span class="badge-line"></span>
+    </div>
+
+    <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1500">
+      <span class="title-main bac-text">BAC</span>
+      <span class="title-main party-text">PARTY</span>
+      <div class="title-underline">
+        <div class="underline-sweep"></div>
+      </div>
+      <span class="title-live" data-text="2026">2026</span>
+    </h1>
+
+    <div class="hero-equalizer" data-aos="fade-up" data-aos-delay="900">
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+      <div class="hero-eq-bar"></div>
+    </div>
+
+    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="700">
+      <span class="subtitle-glow">THE BIGGEST GRADUATION FESTIVAL OF THE YEAR</span>
+    </p>
+    <p class="hero-founders" data-aos="fade-up" data-aos-delay="800">Hosted by <span class="gold-text">YASSIN BACHA</span></p>
+
+    <div class="hero-buttons hero-buttons-single" data-aos="fade-up" data-aos-delay="1000">
+      <a href="https://maps.app.goo.gl/3DvMFasSc2gfwop29" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+        <span class="btn-text"><i class="fas fa-map-marker-alt"></i> VIEW LOCATION</span>
+        <div class="btn-glow"></div>
+      </a>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>SCROLL TO EXPLORE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== MID-PAGE WOW TRANSITION ======================== -->
+<div id="wow-transition" class="wow-transition">
+  <div class="wow-flash"></div>
+  <div class="gold-particles"></div>
+  <div class="smoke-burst"></div>
+  <div class="light-beam-burst">
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+    <div class="wb-beam"></div>
+  </div>
+</div>
+
+<!-- ======================== EVENT DETAILS SECTION ======================== -->
+<section id="event-details" class="event-details-section">
+  <div class="section-bg-glow"></div>
+  <div id="particles-details"></div>
+
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">
+      <span class="title-sub">THE NIGHT WE'VE EARNED</span>
+      <span class="title-main-title">EVENT <span class="gold-text">DETAILS</span></span>
+      <div class="title-decoration">
+        <div class="deco-line"></div>
+        <div class="deco-diamond"><i class="fas fa-star"></i></div>
+        <div class="deco-line"></div>
+      </div>
+    </h2>
+
+    <div class="details-cards">
+      <div class="detail-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">
+          <div class="card-icon-ring"></div>
+          <i class="fas fa-calendar-alt card-icon"></i>
+        </div>
+        <h3 class="card-label">DATE</h3>
+        <p class="card-value">JULY 17, 2026</p>
+        <div class="card-reflection"></div>
+      </div>
+
+      <div class="detail-card glass-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">
+          <div class="card-icon-ring"></div>
+          <i class="fas fa-clock card-icon"></i>
+        </div>
+        <h3 class="card-label">TIME</h3>
+        <p class="card-value">8:30 PM</p>
+        <div class="card-reflection"></div>
+      </div>
+
+      <div class="detail-card glass-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">
+          <div class="card-icon-ring"></div>
+          <i class="fas fa-crown card-icon"></i>
+        </div>
+        <h3 class="card-label">FOUNDER</h3>
+        <p class="card-value">YASSIN BACHA</p>
+        <div class="card-reflection"></div>
+      </div>
+
+      <div class="detail-card glass-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap">
+          <div class="card-icon-ring"></div>
+          <i class="fas fa-headphones card-icon"></i>
+        </div>
+        <h3 class="card-label">MUSIC</h3>
+        <p class="card-value music-name">PEPAS &amp; FESTIVAL VIBES</p>
+        <div class="card-reflection"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== COUNTDOWN SECTION ======================== -->
+<section id="countdown" class="countdown-section">
+  <div class="countdown-bg">
+    <div class="stage-lights">
+      <div class="stage-light sl-1"></div>
+      <div class="stage-light sl-2"></div>
+      <div class="stage-light sl-3"></div>
+      <div class="stage-light sl-4"></div>
+      <div class="stage-light sl-5"></div>
+    </div>
+    <div id="particles-countdown"></div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">
+      <span class="title-sub">THE COUNTDOWN BEGINS</span>
+      <span class="title-main-title">UNTIL WE <span class="gold-text">CELEBRATE</span></span>
+      <div class="title-decoration">
+        <div class="deco-line"></div>
+        <div class="deco-diamond"><i class="fas fa-bolt"></i></div>
+        <div class="deco-line"></div>
+      </div>
+    </h2>
+
+    <div class="countdown-timer" id="countdownTimer">
+      <div class="cd-box" data-aos="zoom-in" data-aos-delay="100">
+        <div class="cd-inner">
+          <div class="cd-number" id="cdDays">00</div>
+          <div class="cd-label">DAYS</div>
+        </div>
+        <div class="cd-glow"></div>
+      </div>
+      <div class="cd-sep" data-aos="zoom-in" data-aos-delay="150">:</div>
+      <div class="cd-box" data-aos="zoom-in" data-aos-delay="200">
+        <div class="cd-inner">
+          <div class="cd-number" id="cdHours">00</div>
+          <div class="cd-label">HOURS</div>
+        </div>
+        <div class="cd-glow"></div>
+      </div>
+      <div class="cd-sep" data-aos="zoom-in" data-aos-delay="250">:</div>
+      <div class="cd-box" data-aos="zoom-in" data-aos-delay="300">
+        <div class="cd-inner">
+          <div class="cd-number" id="cdMinutes">00</div>
+          <div class="cd-label">MINUTES</div>
+        </div>
+        <div class="cd-glow"></div>
+      </div>
+      <div class="cd-sep" data-aos="zoom-in" data-aos-delay="350">:</div>
+      <div class="cd-box" data-aos="zoom-in" data-aos-delay="400">
+        <div class="cd-inner">
+          <div class="cd-number" id="cdSeconds">00</div>
+          <div class="cd-label">SECONDS</div>
+        </div>
+        <div class="cd-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== LOCATION SECTION ======================== -->
+<section id="location" class="location-section">
+  <div class="section-bg-glow"></div>
+  <div id="particles-location"></div>
+
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">
+      <span class="title-sub">FIND US</span>
+      <span class="title-main-title">EVENT <span class="gold-text">LOCATION</span></span>
+      <div class="title-decoration">
+        <div class="deco-line"></div>
+        <div class="deco-diamond"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="deco-line"></div>
+      </div>
+    </h2>
+
+    <div class="location-card glass-card" data-aos="zoom-in" data-aos-duration="1000">
+      <div class="card-glow"></div>
+      <div class="location-visual">
+        <div class="map-marker-container">
+          <div class="marker-pulse"></div>
+          <div class="marker-pulse pulse-2"></div>
+          <div class="map-marker">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+        </div>
+        <svg class="route-lines" viewBox="0 0 400 200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ffd700" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#ffd700" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="route-path" d="M50,150 Q150,50 200,100 T350,50" stroke="url(#routeGrad)" stroke-width="2" fill="none"/>
+        </svg>
+        <div class="route-dots">
+          <div class="route-dot rd-1"><i class="fas fa-route"></i></div>
+          <div class="route-dot rd-2"><i class="fas fa-music"></i></div>
+          <div class="route-dot rd-3"><i class="fas fa-star"></i></div>
+        </div>
+      </div>
+
+      <div class="location-info">
+        <h3 class="location-title">THE VENUE</h3>
+        <p class="location-desc">You made it through the BAC — now it's time to celebrate. Confetti in the air, fireworks overhead, and a night of pure festival energy awaits you and your classmates.</p>
+        <a href="https://maps.app.goo.gl/3DvMFasSc2gfwop29" target="_blank" rel="noopener noreferrer" class="btn btn-location">
+          <i class="fas fa-location-arrow"></i>
+          <span>OPEN LOCATION</span>
+          <div class="btn-glow"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FINAL CLIMAX SECTION ======================== -->
+<section id="reserve" class="final-section">
+  <canvas id="fireworks-canvas"></canvas>
+  <div class="final-bg">
+    <div class="smoke-layer f-smoke-1"></div>
+    <div class="smoke-layer f-smoke-2"></div>
+    <div class="final-beams">
+      <div class="fb-beam"></div>
+      <div class="fb-beam"></div>
+      <div class="fb-beam"></div>
+      <div class="fb-beam"></div>
+      <div class="fb-beam"></div>
+      <div class="fb-beam"></div>
+    </div>
+    <div class="flash-overlay" id="flashOverlay"></div>
+    <div class="camera-shake-container" id="cameraShake">
+      <div class="final-content">
+        <div class="final-neon-ring"></div>
+        <div class="final-neon-ring ring-2"></div>
+        <div class="final-neon-ring ring-3"></div>
+
+        <h2 class="final-title" data-aos="zoom-out" data-aos-duration="2000">
+          <span class="final-line-1">YOU EARNED IT.</span>
+          <span class="final-line-2">NOW COME CELEBRATE AT BAC PARTY 2026</span>
+        </h2>
+
+        <div class="final-details" data-aos="fade-up" data-aos-delay="300">
+          <div class="fd-item"><i class="fas fa-calendar-check"></i> JULY 17, 2026</div>
+          <div class="fd-sep"></div>
+          <div class="fd-item"><i class="fas fa-clock"></i> 8:30 PM</div>
+          <div class="fd-sep"></div>
+          <div class="fd-item"><i class="fas fa-star"></i> FESTIVAL VIBES ALL NIGHT</div>
+          <div class="fd-sep"></div>
+          <div class="fd-item"><i class="fas fa-crown"></i> HOSTED BY YASSIN BACHA</div>
+        </div>
+
+        <div class="btn btn-final-cta" id="finalBadge" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1500">
+          <span class="cta-emoji">🎓</span>
+          <span class="cta-text">SEE YOU THERE</span>
+          <div class="cta-glow"></div>
+          <div class="cta-pulse"></div>
+          <div class="cta-particles" id="ctaParticles"></div>
+        </div>
+
+        <p class="final-tagline">GET READY TO CELEBRATE LIKE NEVER BEFORE</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <span class="f-bac">BAC</span><span class="f-party">PARTY</span><span class="f-live">2026</span>
+    </div>
+    <p class="footer-text">© 2026 <span class="gold-text">Yassin Bacha</span> • All Rights Reserved</p>
+    <div class="footer-socials">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================== SCRIPTS ======================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
