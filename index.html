@@ -3,24 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="BAC PARTY 2026 - The Biggest Graduation Festival of the Year. July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Confetti, fireworks, and non-stop festival vibes.">
-<meta name="keywords" content="BAC Party 2026, Graduation Party, Yassin Bacha, Festival, Baccalaureat Party Tunisia, Pepas, Festival Vibes">
+<meta name="description" content="DJ BOUZED LIVE - The Biggest BAC Party of the Year. July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Premium VIP Nightclub Experience.">
+<meta name="keywords" content="DJ Bouzed, BAC Party 2026, Yassin Bacha, VIP Nightclub, Music Festival">
 <meta name="author" content="Yassin Bacha">
-<meta name="theme-color" content="#060a24">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="BAC PARTY 2026 | The Biggest Graduation Festival">
-<meta property="og:description" content="July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Confetti, graduation caps, fireworks, and the best festival vibes of the year.">
-<meta property="og:site_name" content="BAC PARTY 2026">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BAC PARTY 2026 | The Biggest Graduation Festival">
-<meta name="twitter:description" content="July 17, 2026 at 8:30 PM. Hosted by Yassin Bacha. Confetti, graduation caps, fireworks, and the best festival vibes of the year.">
-
+<meta name="theme-color" content="#0a0015">
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-<title>BAC PARTY 2026 | The Biggest Graduation Festival</title>
+<title>DJ BOUZED LIVE | Premium BAC Party 2026</title>
 
 <!-- Preload fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,9 +32,9 @@
   <div class="loader-content">
     <div class="loader-logo-container">
       <div class="loader-logo">
-        <span class="logo-bac">BAC</span>
-        <span class="logo-party">PARTY</span>
-        <span class="logo-live">2026</span>
+        <span class="logo-dj">DJ</span>
+        <span class="logo-bouzed">BOUZED</span>
+        <span class="logo-live">LIVE</span>
       </div>
       <div class="logo-glow-ring"></div>
       <div class="logo-glow-ring-2"></div>
@@ -67,23 +55,15 @@
       </div>
       <div class="loader-percent" id="loaderPercent">0%</div>
     </div>
-    <div class="loader-text">GET READY TO CELEBRATE...</div>
+    <div class="loader-text">INITIALIZING EXPERIENCE...</div>
   </div>
 </div>
 
 <!-- ======================== BACKGROUND MUSIC CONTROLLER ======================== -->
 <div id="music-controller" class="music-controller">
-  <div class="music-toggle-row">
-    <button id="musicPrev" class="music-nav-btn" aria-label="Previous Track">
-      <i class="fas fa-step-backward"></i>
-    </button>
-    <button id="musicToggle" class="music-toggle" aria-label="Toggle Music">
-      <i class="fas fa-music" id="musicIcon"></i>
-    </button>
-    <button id="musicNext" class="music-nav-btn" aria-label="Next Track">
-      <i class="fas fa-step-forward"></i>
-    </button>
-  </div>
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle Music">
+    <i class="fas fa-music" id="musicIcon"></i>
+  </button>
   <div class="music-visualizer">
     <div class="mv-bar"></div>
     <div class="mv-bar"></div>
@@ -93,20 +73,17 @@
     <div class="mv-bar"></div>
     <div class="mv-bar"></div>
   </div>
-  <div class="track-name" id="trackName">PEPAS</div>
   <div class="volume-container">
     <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider">
   </div>
 </div>
 
-<!-- Playlist: drop your files into assets/music/ using these exact names, or edit the list in script.js -->
-<audio id="bgMusic" preload="auto"></audio>
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/music/background.wav" type="audio/wav">
+</audio>
 
 <!-- ======================== THREE.JS CANVAS ======================== -->
 <canvas id="three-canvas"></canvas>
-
-<!-- ======================== CONFETTI + GRADUATION CAPS LAYER ======================== -->
-<canvas id="confetti-canvas"></canvas>
 
 <!-- ======================== HERO SECTION ======================== -->
 <section id="hero" class="hero-section">
@@ -135,12 +112,12 @@
     </div>
 
     <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1500">
-      <span class="title-main bac-text">BAC</span>
-      <span class="title-main party-text">PARTY</span>
+      <span class="title-main dj-text">DJ</span>
+      <span class="title-main bouzed-text">BOUZED</span>
       <div class="title-underline">
         <div class="underline-sweep"></div>
       </div>
-      <span class="title-live" data-text="2026">2026</span>
+      <span class="title-live" data-text="LIVE">LIVE</span>
     </h1>
 
     <div class="hero-equalizer" data-aos="fade-up" data-aos-delay="900">
@@ -159,11 +136,16 @@
     </div>
 
     <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="700">
-      <span class="subtitle-glow">THE BIGGEST GRADUATION FESTIVAL OF THE YEAR</span>
+      <span class="subtitle-glow">THE BIGGEST BAC PARTY OF THE YEAR</span>
     </p>
     <p class="hero-founders" data-aos="fade-up" data-aos-delay="800">Hosted by <span class="gold-text">YASSIN BACHA</span></p>
 
-    <div class="hero-buttons hero-buttons-single" data-aos="fade-up" data-aos-delay="1000">
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1000">
+      <a href="#reserve" class="btn btn-primary">
+        <span class="btn-text"><i class="fas fa-ticket-alt"></i> RESERVE YOUR SPOT</span>
+        <div class="btn-glow"></div>
+        <div class="btn-particles"></div>
+      </a>
       <a href="https://maps.app.goo.gl/3DvMFasSc2gfwop29" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
         <span class="btn-text"><i class="fas fa-map-marker-alt"></i> VIEW LOCATION</span>
         <div class="btn-glow"></div>
@@ -203,7 +185,7 @@
 
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">
-      <span class="title-sub">THE NIGHT WE'VE EARNED</span>
+      <span class="title-sub">THE NIGHT OF NIGHTS</span>
       <span class="title-main-title">EVENT <span class="gold-text">DETAILS</span></span>
       <div class="title-decoration">
         <div class="deco-line"></div>
@@ -252,8 +234,8 @@
           <div class="card-icon-ring"></div>
           <i class="fas fa-headphones card-icon"></i>
         </div>
-        <h3 class="card-label">MUSIC</h3>
-        <p class="card-value music-name">PEPAS &amp; FESTIVAL VIBES</p>
+        <h3 class="card-label">DJ</h3>
+        <p class="card-value dj-name">DJ BOUZED</p>
         <div class="card-reflection"></div>
       </div>
     </div>
@@ -276,7 +258,7 @@
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">
       <span class="title-sub">THE COUNTDOWN BEGINS</span>
-      <span class="title-main-title">UNTIL WE <span class="gold-text">CELEBRATE</span></span>
+      <span class="title-main-title">UNTIL THE <span class="gold-text">DROP</span></span>
       <div class="title-decoration">
         <div class="deco-line"></div>
         <div class="deco-diamond"><i class="fas fa-bolt"></i></div>
@@ -365,7 +347,7 @@
 
       <div class="location-info">
         <h3 class="location-title">THE VENUE</h3>
-        <p class="location-desc">You made it through the BAC — now it's time to celebrate. Confetti in the air, fireworks overhead, and a night of pure festival energy awaits you and your classmates.</p>
+        <p class="location-desc">Prepare to enter an elite atmosphere where music meets luxury. A night of pure energy, golden vibes, and unforgettable moments awaits you.</p>
         <a href="https://maps.app.goo.gl/3DvMFasSc2gfwop29" target="_blank" rel="noopener noreferrer" class="btn btn-location">
           <i class="fas fa-location-arrow"></i>
           <span>OPEN LOCATION</span>
@@ -398,8 +380,8 @@
         <div class="final-neon-ring ring-3"></div>
 
         <h2 class="final-title" data-aos="zoom-out" data-aos-duration="2000">
-          <span class="final-line-1">YOU EARNED IT.</span>
-          <span class="final-line-2">NOW COME CELEBRATE AT BAC PARTY 2026</span>
+          <span class="final-line-1">ARE YOU READY?</span>
+          <span class="final-line-2">FOR THE BIGGEST BAC PARTY OF THE YEAR?</span>
         </h2>
 
         <div class="final-details" data-aos="fade-up" data-aos-delay="300">
@@ -407,20 +389,20 @@
           <div class="fd-sep"></div>
           <div class="fd-item"><i class="fas fa-clock"></i> 8:30 PM</div>
           <div class="fd-sep"></div>
-          <div class="fd-item"><i class="fas fa-star"></i> FESTIVAL VIBES ALL NIGHT</div>
+          <div class="fd-item"><i class="fas fa-star"></i> DJ BOUZED LIVE</div>
           <div class="fd-sep"></div>
           <div class="fd-item"><i class="fas fa-crown"></i> HOSTED BY YASSIN BACHA</div>
         </div>
 
-        <div class="btn btn-final-cta" id="finalBadge" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1500">
-          <span class="cta-emoji">🎓</span>
-          <span class="cta-text">SEE YOU THERE</span>
+        <a href="#reserve" class="btn btn-final-cta" id="finalCta" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1500">
+          <span class="cta-emoji">🎟</span>
+          <span class="cta-text">RESERVE YOUR SPOT</span>
           <div class="cta-glow"></div>
           <div class="cta-pulse"></div>
           <div class="cta-particles" id="ctaParticles"></div>
-        </div>
+        </a>
 
-        <p class="final-tagline">GET READY TO CELEBRATE LIKE NEVER BEFORE</p>
+        <p class="final-tagline">YOUR SPOT IN THE NIGHT IS WAITING</p>
       </div>
     </div>
   </div>
@@ -430,7 +412,7 @@
 <footer class="site-footer">
   <div class="footer-content">
     <div class="footer-logo">
-      <span class="f-bac">BAC</span><span class="f-party">PARTY</span><span class="f-live">2026</span>
+      <span class="f-dj">DJ</span><span class="f-bouzed">BOUZED</span><span class="f-live">LIVE</span>
     </div>
     <p class="footer-text">© 2026 <span class="gold-text">Yassin Bacha</span> • All Rights Reserved</p>
     <div class="footer-socials">
